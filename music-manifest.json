@@ -500,6 +500,18 @@
     "trackNumber": 14
   },
   {
+    "title": "CAN'T RELAX",
+    "artist": "T Swerve",
+    "album": "T SWERV3",
+    "category": "Albums",
+    "audioUrl": "Music/Albums/T SWERV3/CAN'T RELAX.mp3",
+    "coverUrl": "Music/Albums/T SWERV3/SWERV3cover.JPEG",
+    "path": "Music/Albums/T SWERV3/CAN'T RELAX.mp3",
+    "date": "2026-06-12",
+    "year": "2026",
+    "trackNumber": 6
+  },
+  {
     "title": "EIFFEL TOWER",
     "artist": "T Swerve",
     "album": "T SWERV3",
@@ -570,18 +582,6 @@
     "date": "2026-06-12",
     "year": "2026",
     "trackNumber": 15
-  },
-  {
-    "title": "Cant Relax",
-    "artist": "T Swerve",
-    "album": "T SWERV3",
-    "category": "Albums",
-    "audioUrl": "Music/Albums/T SWERV3/CANT RELAX.mp3",
-    "coverUrl": "Music/Albums/T SWERV3/SWERV3cover.JPEG",
-    "path": "Music/Albums/T SWERV3/CANT RELAX.mp3",
-    "date": "2026-06-12",
-    "year": "2026",
-    "trackNumber": 0
   },
   {
     "title": "CROWN",
