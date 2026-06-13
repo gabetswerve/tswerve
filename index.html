@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T Swerve | Homebase</title>
+    <meta name="description" content="The official homebase for T Swerve">
+    <link rel="stylesheet" href="style.css?v=2">
+</head>
+
+<body>
+    <header class="site-header">
+        <a class="brand" href="index.html" aria-label="T Swerve home">T Swerve</a>
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="#top">Home</a>
+            <a href="link.html">All Links</a>
+            <a href="epk.html">EPK</a>
+            <a href="#music">Music</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero section-band" id="top">
+            <div class="hero-copy">
+                <p class="eyebrow">FAKE Entertainment presents</p>
+                <h1>T Swerve</h1>
+                <p class="lead">T Swerve is a true chameleon of modern Alternative Hip-Hop and Melodic R&B, hand-carving his own beats and maintaining a hyper-pure artistic vision entirely on his own terms.</p>
+                <div class="hero-actions">
+                    <a class="button primary" href="#music">Play Music</a>
+                </div>
+            </div>
+            <div class="hero-panel" aria-label="Featured player">
+                <p class="panel-label">Now available</p>
+                <h2>Latest Drop</h2>
+                <img src="assets/latest-drop.jpg" alt="Latest Drop Cover" class="featured-cover" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 4px; margin-bottom: 1rem; border: 1px solid var(--line);">
+                <audio controls controlsList="nodownload" oncontextmenu="return false;" preload="metadata" id="featured-player"></audio>
+                <p class="muted" id="featured-title">Upload music to your repo folders to populate the player.</p>
+            </div>
+        </section>
+
+
+        <section class="section-band" id="music">
+            <div class="section-heading">
+                <p class="eyebrow">Catalog</p>
+                <h2>Music Player</h2>
+                <p>Listen to T Swerve's music here first before it hits DSPs and retail stores.</p>
+            </div>
+            <div class="tabs" id="music-tabs" role="tablist" aria-label="Music categories"></div>
+            <div class="music-search-container">
+                <input type="text" id="music-search" placeholder="Search track, artist, or album..."
+                    aria-label="Search music catalog">
+            </div>
+            <div class="music-layout">
+                <div class="release-grid" id="music-library" aria-live="polite"></div>
+                <aside class="player-dock" aria-label="Music player">
+                    <div class="player-track-info">
+                        <img id="player-art" src="" alt="" hidden>
+                        <div class="player-text-details">
+                            <p class="panel-label">Selected track</p>
+                            <h3 id="player-title">No track selected</h3>
+                            <p class="muted" id="player-meta">Choose a song.</p>
+                        </div>
+                    </div>
+                    <audio id="main-audio" controls controlsList="nodownload" oncontextmenu="return false;" preload="metadata"></audio>
+                    <div class="player-volume-container" style="display: flex; align-items: center; gap: 0.6rem; margin-top: 0.6rem; padding-top: 0.2rem; width: 100%;">
+                        <button id="player-mute" class="control-btn" type="button" title="Mute/Unmute" style="min-width: 2.2rem; padding: 0.4rem; font-size: 0.9rem;">🔊</button>
+                        <input type="range" id="player-volume" min="0" max="1" step="0.05" value="1" class="player-volume-slider" title="Volume" style="flex: 1; -webkit-appearance: none; appearance: none; height: 6px; min-height: auto; width: 0; padding: 0; border: none; border-radius: 3px; background: var(--line); outline: none; transition: background 0.3s; box-shadow: none;">
+                    </div>
+                    <div class="player-controls">
+                        <button id="player-shuffle" class="control-btn" title="Shuffle (Off)" type="button">SHUF</button>
+                        <button id="player-prev" class="control-btn" title="Previous Track" type="button">⏮</button>
+                        <button id="player-next" class="control-btn" title="Next Track" type="button">⏭</button>
+                        <button id="player-repeat" class="control-btn" title="Repeat (Off)" type="button">REP</button>
+                    </div>
+                    <button id="player-shuffle-all" class="control-btn" type="button" style="width: 100%; margin-top: 0.6rem; min-height: 2.2rem; font-family: 'Share Tech Mono', monospace; text-transform: uppercase; letter-spacing: 0.05em; border: 1px solid var(--cyan); background: rgba(0, 255, 255, 0.05); color: var(--cyan);">Shuffle All</button>
+                </aside>
+            </div>
+        </section>
+
+
+        <section class="section-band" id="contact">
+            <div class="section-heading">
+                <p class="eyebrow">Booking and business</p>
+                <h2>Contact Me</h2>
+            </div>
+            <div class="contact-grid">
+                <div class="qr-card" style="display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 1.25rem;">
+                    <img src="assets/email.png" alt="T Swerve Email" style="width: 100%; aspect-ratio: 1; object-fit: contain; border-radius: 4px; border: 1px solid var(--line); background: #ffffff; padding: 1.5rem;">
+                    <a href="mailto:gabetswerve@gmail.com" class="button primary" style="width: 100%; margin-top: 0.75rem; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; min-height: 2.2rem; font-family: 'Outfit', sans-serif; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; font-size: 0.8rem;">Email</a>
+                </div>
+                <div class="qr-card" style="display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 1.25rem;">
+                    <img src="assets/music-links.jpg" alt="T Swerve Music Links" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 4px; border: 1px solid var(--line);">
+                    <a href="https://ffm.bio/tswerve" target="_blank" rel="noopener noreferrer" class="button primary" style="width: 100%; margin-top: 0.75rem; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; min-height: 2.2rem; font-family: 'Outfit', sans-serif; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; font-size: 0.8rem;">Music Links</a>
+                </div>
+                <div class="qr-card" style="display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 1.25rem;">
+                    <img src="assets/instagram.png" alt="T Swerve Instagram" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 4px; border: 1px solid var(--line);">
+                    <a href="https://www.instagram.com/gabetswerve?igsh=MTN4anplaGdxeHgwZg%3D%3D&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" class="button primary" style="width: 100%; margin-top: 0.75rem; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; min-height: 2.2rem; font-family: 'Outfit', sans-serif; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; font-size: 0.8rem;">Instagram</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span> T Swerve | FAKE Entertainment. All rights reserved.</p>
+    </footer>
+
+    <script src="site.js"></script>
+</body>
+
+</html>
