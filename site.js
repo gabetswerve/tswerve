@@ -63,17 +63,10 @@ function ensurePlayerDockCreated() {
 }
 
 function positionPlayerDock() {
-    const slot = document.querySelector("#player-dock-slot");
     const player = ensurePlayerDockCreated();
-    if (slot) {
-        slot.appendChild(player);
-        player.classList.remove("floating-player");
-        document.body.classList.remove("has-floating-player");
-    } else {
-        document.body.appendChild(player);
-        player.classList.add("floating-player");
-        document.body.classList.add("has-floating-player");
-    }
+    document.body.appendChild(player);
+    player.classList.add("floating-player");
+    document.body.classList.add("has-floating-player");
 }
 
 function initPage() {
