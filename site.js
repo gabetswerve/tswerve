@@ -1,6 +1,6 @@
 const SITE_CONFIG = {
     owner: "gabetswerve",
-    repo: "tswerve.github.io",
+    repo: "tswerve",
     branch: "main",
     contactEmail: "gabetswerve@gmail.com"
 };
@@ -514,7 +514,14 @@ async function loadMusicLibrary() {
         tracks = tracks.filter(track => {
             const albumName = (track.album || "").toLowerCase();
             const trackPath = (track.path || "").toLowerCase();
-            return albumName !== "t swerv3" && albumName !== "t swerve" && !trackPath.includes("/t swerv3/") && !trackPath.includes("/t swerve/");
+            const audioUrl = (track.audioUrl || "").toLowerCase();
+            const isTSwerv3 =
+                albumName === "t swerv3" ||
+                trackPath.includes("t swerv3") ||
+                audioUrl.includes("t swerv3") ||
+                trackPath.includes("t%20swerv3") ||
+                audioUrl.includes("t%20swerv3");
+            return !isTSwerv3;
         });
     }
 
