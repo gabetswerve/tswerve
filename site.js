@@ -507,6 +507,17 @@ async function loadMusicLibrary() {
         }
     }
 
+    // Hide T SWERV3 album and songs until September 11th, 2026
+    const currentDate = new Date();
+    const releaseDate = new Date("2026-09-11T00:00:00");
+    if (currentDate < releaseDate) {
+        tracks = tracks.filter(track => {
+            const albumName = (track.album || "").toLowerCase();
+            const trackPath = (track.path || "").toLowerCase();
+            return albumName !== "t swerv3" && albumName !== "t swerve" && !trackPath.includes("/t swerv3/") && !trackPath.includes("/t swerve/");
+        });
+    }
+
     if (!tracks.length) {
         library.innerHTML = "<p class=\"muted\">No music files found yet. Upload audio files and cover art to the Music folders, then publish the repo.</p>";
         return;
