@@ -1906,16 +1906,13 @@ footer {
 
 .player-dock.floating-player .player-controls {
     flex: 1;
-    max-width: 250px;
+    max-width: 350px;
     margin-top: 0;
     padding-top: 0;
     border-top: none;
     gap: 0.5rem;
 }
 
-.player-dock.floating-player #player-shuffle-all {
-    display: none !important;
-}
 
 /* Adjust page padding when floating player is present */
 body.has-floating-player {

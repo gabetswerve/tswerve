@@ -55,8 +55,8 @@ function ensurePlayerDockCreated() {
             <button id="player-prev" class="control-btn" title="Previous Track" type="button">⏮</button>
             <button id="player-next" class="control-btn" title="Next Track" type="button">⏭</button>
             <button id="player-repeat" class="control-btn" title="Repeat (Off)" type="button">REP</button>
+            <button id="player-shuffle-all" class="control-btn" type="button" style="font-family: 'Share Tech Mono', monospace; text-transform: uppercase; letter-spacing: 0.05em; border: 1px solid var(--cyan); background: rgba(0, 255, 255, 0.05); color: var(--cyan);">Shuffle All</button>
         </div>
-        <button id="player-shuffle-all" class="control-btn" type="button" style="width: 100%; margin-top: 0.6rem; min-height: 2.2rem; font-family: 'Share Tech Mono', monospace; text-transform: uppercase; letter-spacing: 0.05em; border: 1px solid var(--cyan); background: rgba(0, 255, 255, 0.05); color: var(--cyan);">Shuffle All</button>
     `;
 
     return playerDockEl;
