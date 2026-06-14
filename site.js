@@ -488,9 +488,15 @@ async function loadMusicLibrary() {
     if (isLocalPreview) {
         tracks = await loadMusicManifest();
     } else {
-        const allGroups = await Promise.all(MUSIC_FOLDERS.map(buildTracks));
-        tracks = allGroups.flat();
-        if (!tracks.length) tracks = await loadMusicManifest();
+        try {
+            const allGroups = await Promise.all(MUSIC_FOLDERS.map(buildTracks));
+            tracks = allGroups.flat();
+        } catch (error) {
+            console.warn("GitHub API error, falling back to local manifest:", error);
+        }
+        if (!tracks || !tracks.length) {
+            tracks = await loadMusicManifest();
+        }
     }
 
     if (!tracks.length) {
