@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;700&family=Chokokutai&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;700&family=Chokokutai&display=swap');
 
 :root {
     --bg: #0b0a0d;            /* Deep Obsidian Charcoal */
@@ -1370,6 +1370,441 @@ footer {
     background: var(--cyan) !important;
     color: #0b0a0d !important;
     box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3);
+}
+
+/* EPK Page Editorial Theme Override */
+.epk-page {
+    background-color: #ffd100 !important;
+    color: #0b0a0d !important;
+}
+
+.epk-page::before {
+    display: none !important;
+}
+
+.epk-page header.site-header {
+    background-color: #0b0a0d !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.epk-page section.section-band {
+    background: transparent !important;
+    border-top: 1px solid rgba(11, 10, 13, 0.12) !important;
+    color: #0b0a0d !important;
+    padding: 4rem 2rem !important;
+}
+
+.epk-page .section-heading h2 {
+    font-family: 'Bebas Neue', sans-serif !important;
+    font-size: clamp(2.5rem, 6vw, 4rem) !important;
+    text-transform: uppercase !important;
+    color: #0b0a0d !important;
+    letter-spacing: 0.02em !important;
+    font-weight: normal !important;
+    line-height: 1.0 !important;
+}
+
+.epk-page .section-heading .eyebrow {
+    color: #444444 !important;
+    font-family: 'Outfit', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 0.85rem !important;
+    letter-spacing: 0.12em !important;
+}
+
+.epk-page section.section-band p {
+    color: #0b0a0d !important;
+}
+
+.epk-page .tabs button {
+    border: 1px solid #0b0a0d !important;
+    background: transparent !important;
+    color: #0b0a0d !important;
+    font-family: 'Outfit', sans-serif !important;
+    font-weight: 700 !important;
+    transition: all 0.2s ease !important;
+}
+
+.epk-page .tabs button.active,
+.epk-page .tabs button:hover {
+    background: #0b0a0d !important;
+    color: #ffd100 !important;
+}
+
+.epk-page .music-folder {
+    background: rgba(11, 10, 13, 0.03) !important;
+    border: 1px solid #0b0a0d !important;
+}
+
+.epk-page .music-folder summary {
+    border-bottom: 1px solid rgba(11, 10, 13, 0.08) !important;
+}
+
+.epk-page .folder-copy strong {
+    color: #0b0a0d !important;
+}
+
+.epk-page .folder-copy small {
+    color: #444444 !important;
+}
+
+.epk-page .folder-toggle {
+    color: #0b0a0d !important;
+}
+
+.epk-page .folder-tracks {
+    background: rgba(11, 10, 13, 0.04) !important;
+}
+
+.epk-page .folder-track-row {
+    background: rgba(255, 255, 255, 0.8) !important;
+    border: 1px solid rgba(11, 10, 13, 0.08) !important;
+}
+
+.epk-page .folder-track-row strong {
+    color: #0b0a0d !important;
+}
+
+.epk-page .folder-track-row small {
+    color: #444444 !important;
+}
+
+.epk-page .folder-track-row .button.primary,
+.epk-page .release-card .button.primary {
+    background: #0b0a0d !important;
+    color: #ffd100 !important;
+    border: 1px solid #0b0a0d !important;
+}
+
+.epk-page .folder-track-row .button.primary:hover,
+.epk-page .release-card .button.primary:hover {
+    background: #25232b !important;
+    border-color: #25232b !important;
+}
+
+.epk-page .player-dock {
+    background: #0b0a0d !important;
+    color: #ffd100 !important;
+    border: 2px solid #0b0a0d !important;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3) !important;
+}
+
+.epk-page .player-dock #player-title {
+    color: #faf9fb !important;
+}
+
+.epk-page .player-dock #player-meta {
+    color: #938f9b !important;
+}
+
+.epk-page .player-dock .control-btn {
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #faf9fb !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+}
+
+.epk-page .player-dock .control-btn.active {
+    background: #ffd100 !important;
+    color: #0b0a0d !important;
+    border-color: #ffd100 !important;
+}
+
+.epk-page .player-dock .control-btn:hover {
+    border-color: #ffd100 !important;
+    color: #ffd100 !important;
+}
+
+.epk-page .release-card {
+    background: rgba(255, 255, 255, 0.8) !important;
+    border: 1px solid rgba(11, 10, 13, 0.08) !important;
+}
+
+.epk-page .release-card h3 {
+    color: #0b0a0d !important;
+}
+
+.epk-page .release-card .card-meta {
+    color: #444444 !important;
+}
+
+.epk-page .release-card .button.info-button {
+    border: 1px solid #0b0a0d !important;
+    color: #0b0a0d !important;
+    background: transparent !important;
+}
+
+.epk-page .release-card .button.info-button:hover {
+    background: rgba(11, 10, 13, 0.05) !important;
+}
+
+.epk-page footer {
+    background-color: #0b0a0d !important;
+    color: #938f9b !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* EPK Hero Banner */
+.epk-hero-banner {
+    position: relative;
+    width: 100%;
+    height: 55vh;
+    max-height: 480px;
+    min-height: 320px;
+    overflow: hidden;
+    background: url('assets/homepage-profile.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: 3rem 2rem;
+}
+
+.epk-hero-banner::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(11, 10, 13, 0.7) 0%, rgba(11, 10, 13, 0.1) 100%);
+    z-index: 1;
+}
+
+.epk-hero-title {
+    position: relative;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4.5rem, 15vw, 9.5rem);
+    line-height: 0.8;
+    color: #ffffff;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    z-index: 2;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+/* EPK Split Bio Section */
+.epk-bio-section {
+    display: grid;
+    grid-template-columns: 1fr 2.2fr;
+    gap: 4rem;
+    align-items: start;
+    padding: 4rem 2rem;
+    background-color: #ffd100;
+}
+
+.epk-bio-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.epk-bio-cover {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border: 2px solid #0b0a0d;
+    border-radius: 4px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.epk-listen-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 3.2rem;
+    background: #0b0a0d;
+    color: #ffd100;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    text-decoration: none;
+    border-radius: 30px;
+    margin-top: 1.5rem;
+    transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+    border: none;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.epk-listen-btn:hover {
+    background: #25232b;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.epk-bio-right {
+    color: #0b0a0d;
+}
+
+.epk-release-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3.8rem, 8vw, 6.8rem);
+    line-height: 0.8;
+    margin: 0 0 2rem 0;
+    text-transform: uppercase;
+    color: #0b0a0d;
+    letter-spacing: -0.01em;
+}
+
+.epk-bio-right h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.2rem;
+    margin: 2rem 0 1rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: #0b0a0d;
+    border-bottom: 2px solid #0b0a0d;
+    padding-bottom: 0.25rem;
+}
+
+.epk-bio-right h3:first-of-type {
+    margin-top: 0;
+}
+
+.epk-bio-text {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    font-size: 1.125rem;
+    line-height: 1.65;
+    margin: 0 0 1.5rem 0;
+    color: #0b0a0d;
+}
+
+.epk-social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 1rem;
+}
+
+.epk-social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: #0b0a0d;
+    color: #ffd100;
+    border-radius: 50%;
+    transition: transform 0.2s, background 0.2s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.epk-social-links a:hover {
+    transform: scale(1.1);
+    background: #25232b;
+}
+
+.epk-social-links svg {
+    width: 22px;
+    height: 22px;
+    fill: currentColor;
+}
+
+/* EPK Photos Grid */
+.epk-photos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.epk-photos-grid figure {
+    margin: 0;
+    background: rgba(11, 10, 13, 0.02);
+    border: 1px solid #0b0a0d;
+    border-radius: 4px;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.epk-photos-grid figure:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.epk-photos-grid img {
+    width: 100%;
+    aspect-ratio: 1.5;
+    object-fit: cover;
+    display: block;
+    border-bottom: 1px solid #0b0a0d;
+}
+
+.epk-photos-grid figcaption {
+    padding: 0.8rem;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    color: #0b0a0d;
+}
+
+/* EPK Contact Section */
+.epk-contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 2.5rem;
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 1rem;
+}
+
+.epk-contact-grid div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.epk-contact-grid strong {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    color: #0b0a0d;
+    letter-spacing: 0.04em;
+    border-bottom: 1px solid rgba(11, 10, 13, 0.1);
+    padding-bottom: 0.25rem;
+    margin-bottom: 0.25rem;
+}
+
+.epk-contact-grid span {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #0b0a0d;
+}
+
+.epk-contact-grid a {
+    color: #0b0a0d;
+    text-decoration: underline;
+    transition: opacity 0.2s;
+}
+
+.epk-contact-grid a:hover {
+    opacity: 0.8;
+}
+
+@media (max-width: 820px) {
+    .epk-bio-section {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding: 3rem 1.5rem;
+    }
+    
+    .epk-bio-left {
+        max-width: 380px;
+        margin: 0 auto;
+    }
+    
+    .epk-hero-banner {
+        height: 40vh;
+        padding: 2rem 1.5rem;
+    }
 }
 
 
