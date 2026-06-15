@@ -727,15 +727,17 @@ function renderTracks(tracks, container) {
 
 function renderSingleTrackCard(track, hasDockedPlayer) {
     const metaParts = [track.artist, track.album, track.category ? `${track.category}${track.year ? ` (${track.year})` : ""}` : track.year].filter(Boolean);
+    const fileName = track.audioUrl.split("/").pop();
     return `
         <article class="release-card">
             ${track.coverUrl ? `<img src="${track.coverUrl}" alt="${escapeHtml(track.title)} cover art">` : ""}
             <div class="card-body">
                 <h3>${escapeHtml(track.title)}</h3>
                 <p class="card-meta">${escapeHtml(metaParts.join(" / "))}</p>
-                <div class="card-actions" style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
+                <div class="card-actions" style="display: flex; gap: 0.5rem; margin-top: 0.5rem; flex-wrap: wrap;">
                     ${hasDockedPlayer ? `<button class="button primary" type="button" data-track-index="${track.originalIndex}">Play</button>` : `<audio controls controlsList="nodownload" oncontextmenu="return false;" preload="metadata" src="${track.audioUrl}"></audio>`}
                     <button class="button info-button" type="button" data-info-track="${track.originalIndex}">Info</button>
+                    <a class="button download-btn" href="${track.audioUrl}" download="${fileName}" aria-label="Download ${escapeHtml(track.title)}">⬇ Download</a>
                 </div>
             </div>
         </article>
@@ -759,15 +761,20 @@ function renderReleaseFolder(group, hasDockedPlayer) {
                 </span>
             </summary>
             <div class="folder-tracks">
-                ${group.tracks.map(track => `
+                ${group.tracks.map(track => {
+                    const fileName = track.audioUrl.split("/").pop();
+                    return `
                     <div class="folder-track-row">
                         <span>
                             <strong>${escapeHtml(track.title)}</strong>
                             <small>${escapeHtml(track.artist || "T Swerve")}</small>
                         </span>
-                        ${hasDockedPlayer ? `<button class="button primary" type="button" data-track-index="${track.originalIndex}">Play</button>` : `<audio controls controlsList="nodownload" oncontextmenu="return false;" preload="metadata" src="${track.audioUrl}"></audio>`}
+                        <div class="folder-track-btns">
+                            ${hasDockedPlayer ? `<button class="button primary" type="button" data-track-index="${track.originalIndex}">Play</button>` : `<audio controls controlsList="nodownload" oncontextmenu="return false;" preload="metadata" src="${track.audioUrl}"></audio>`}
+                            <a class="button download-btn" href="${track.audioUrl}" download="${fileName}" aria-label="Download ${escapeHtml(track.title)}">⬇</a>
+                        </div>
                     </div>
-                `).join("")}
+                `}).join("")}
             </div>
         </details>
     `;

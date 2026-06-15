@@ -1124,6 +1124,42 @@ footer {
     font-size: 0.8rem;
 }
 
+/* Download button — muted outline style, distinct from Play */
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    text-decoration: none;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    background: transparent;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 0.3rem 0.75rem;
+    min-height: 2.25rem;
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    white-space: nowrap;
+}
+
+.download-btn:hover {
+    color: var(--text);
+    border-color: var(--cyan);
+    background: rgba(0, 230, 230, 0.06);
+}
+
+/* Wrapper for Play + Download in folder track rows */
+.folder-track-btns {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
 .stat-grid div {
     padding: 1.25rem;
     text-align: center;
