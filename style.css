@@ -2191,6 +2191,11 @@ footer {
     pointer-events: none !important;
 }
 
+/* Top row wrapper (track info + collapse btn) */
+.player-top-row {
+    display: contents; /* transparent on desktop — children act as direct flex children */
+}
+
 /* Collapse chevron button inside the player */
 .player-collapse-btn {
     flex-shrink: 0;
@@ -2451,15 +2456,23 @@ body.has-floating-player {
         align-items: stretch;
     }
 
-    /* Top row: art thumbnail + track name/meta */
+    /* Top row: track info + collapse btn side by side */
+    .player-dock.floating-player .player-top-row {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        width: 100%;
+        margin-bottom: 0.35rem;
+    }
+
     .player-dock.floating-player .player-track-info {
         flex: unset;
         max-width: none;
         min-width: 0;
-        margin-bottom: 0.35rem;
+        flex: 1;
         gap: 0.6rem;
         align-items: center;
-        padding-right: 2.2rem; /* Make room for the absolute positioned collapse button */
+        margin-bottom: 0;
     }
 
     .player-dock.floating-player #player-art {
@@ -2526,12 +2539,10 @@ body.has-floating-player {
         display: none !important; /* hide volume on mobile */
     }
 
-    /* Reposition collapse btn as a clean floating circular button in the top-right */
+    /* Collapse btn — inline in the top row, no absolute positioning */
     .player-dock.floating-player .player-collapse-btn {
         display: flex;
-        position: absolute;
-        top: 0.7rem;
-        right: 0.9rem;
+        flex-shrink: 0;
         width: 32px;
         height: 32px;
         border-radius: 50%;
@@ -2543,7 +2554,6 @@ body.has-floating-player {
         justify-content: center;
         cursor: pointer;
         transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-        z-index: 10;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     }
 

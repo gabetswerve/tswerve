@@ -37,13 +37,16 @@ function ensurePlayerDockCreated() {
     playerDockEl.setAttribute("aria-label", "Music player");
     
     playerDockEl.innerHTML = `
-        <div class="player-track-info">
-            <img id="player-art" src="" alt="" hidden>
-            <div class="player-text-details">
-                <p class="panel-label">Selected track</p>
-                <button id="player-title" class="player-title-btn" type="button" title="Go to song in music section" aria-label="Go to song">No track selected</button>
-                <p class="muted" id="player-meta">Choose a song.</p>
+        <div class="player-top-row">
+            <div class="player-track-info">
+                <img id="player-art" src="" alt="" hidden>
+                <div class="player-text-details">
+                    <p class="panel-label">Selected track</p>
+                    <button id="player-title" class="player-title-btn" type="button" title="Go to song in music section" aria-label="Go to song">No track selected</button>
+                    <p class="muted" id="player-meta">Choose a song.</p>
+                </div>
             </div>
+            <button id="player-collapse-btn" class="player-collapse-btn" type="button" title="Hide player" aria-label="Hide music player">▼</button>
         </div>
         
         <audio id="main-audio" preload="metadata"></audio>
@@ -70,8 +73,6 @@ function ensurePlayerDockCreated() {
                 <input type="range" id="player-volume" min="0" max="1" step="0.05" value="1" class="player-volume-slider" title="Volume">
             </div>
         </div>
-
-        <button id="player-collapse-btn" class="player-collapse-btn" type="button" title="Hide player" aria-label="Hide music player">▼</button>
     `;
 
     return playerDockEl;
