@@ -490,21 +490,23 @@ async function loadMusicLibrary() {
     const library = document.querySelector("#music-library");
     if (!library) return;
 
-    const isLocalPreview = ["", "localhost", "127.0.0.1"].includes(window.location.hostname);
-    library.innerHTML = `<p class="muted">Loading music from ${isLocalPreview ? "local manifest" : "GitHub"}...</p>`;
+    library.innerHTML = `<p class="muted">Loading music...</p>`;
 
-    let tracks = [];
-    if (isLocalPreview) {
-        tracks = await loadMusicManifest();
-    } else {
+    // Always load from music-manifest.json — it contains stable relative paths
+    // served as plain static files (no rate limits, no expiring API URLs).
+    // The GitHub API download_url fields expire and are rate-limited at 60 req/hr,
+    // which is why music would stop playing after extended listening sessions.
+    let tracks = await loadMusicManifest();
+
+    // If manifest is missing (e.g. first-time local setup with no manifest yet),
+    // fall back to the GitHub API as a last resort.
+    if (!tracks || !tracks.length) {
         try {
+            library.innerHTML = `<p class="muted">Manifest not found, loading from GitHub...</p>`;
             const allGroups = await Promise.all(MUSIC_FOLDERS.map(buildTracks));
             tracks = allGroups.flat();
         } catch (error) {
-            console.warn("GitHub API error, falling back to local manifest:", error);
-        }
-        if (!tracks || !tracks.length) {
-            tracks = await loadMusicManifest();
+            console.warn("GitHub API fallback also failed:", error);
         }
     }
 
