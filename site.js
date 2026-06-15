@@ -881,13 +881,8 @@ function setPlayerTrack(track) {
         art.hidden = false;
     }
 
-    // For album/EP tracks, expand the folder and highlight the row
-    if (track.category !== "Singles" && track.category !== "Features") {
-        expandFolderForTrack(track);
-    } else {
-        // Clear any existing now-playing highlights
-        clearNowPlayingHighlight();
-    }
+    // Update now-playing highlight in the library (does not auto-scroll or expand folder)
+    updateLibraryHighlight(track);
 }
 
 /**
@@ -897,6 +892,22 @@ function clearNowPlayingHighlight() {
     document.querySelectorAll(".folder-track-row.now-playing").forEach(row => {
         row.classList.remove("now-playing");
     });
+}
+
+/**
+ * Updates the now-playing highlight in the music library without opening folders or scrolling.
+ */
+function updateLibraryHighlight(track) {
+    clearNowPlayingHighlight();
+
+    const library = document.querySelector("#music-library");
+    if (!library || !track.path) return;
+
+    // Find the row and highlight it
+    const trackRow = library.querySelector(`.folder-track-row[data-track-path="${CSS.escape(track.path)}"]`);
+    if (trackRow) {
+        trackRow.classList.add("now-playing");
+    }
 }
 
 /**
