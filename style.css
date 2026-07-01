@@ -2959,3 +2959,12 @@ body.has-floating-player {
         display: none;
     }
 }
+
+/* ==========================================================================
+   TEMPORARILY HIDE COUNTDOWN SECTION (User Request: "until I say otherwise")
+   To restore the countdown, comment out or remove the rule below.
+   ========================================================================== */
+.countdown-section,
+#nav-countdown-pill {
+    display: none !important;
+}
