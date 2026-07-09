@@ -576,9 +576,9 @@ async function loadMusicLibrary() {
         }
     }
 
-    // Hide T SWERV3 album and songs until September 11th, 2026
+    // Hide T SWERV3 album and songs until October 30th, 2026
     const currentDate = new Date();
-    const releaseDate = new Date("2026-09-11T00:00:00");
+    const releaseDate = new Date("2026-10-30T00:00:00");
     if (currentDate < releaseDate) {
         tracks = tracks.filter(track => {
             const albumName = (track.album || "").toLowerCase();
@@ -1396,8 +1396,8 @@ function getTeaserAudioUrl(filename) {
 let countdownInterval = null;
 
 function initCountdown() {
-    // Target: September 11, 2026 at 12:00 AM EDT (UTC-4)
-    const releaseDate = new Date("2026-09-11T04:00:00Z");
+    // Target: October 30, 2026 at 12:00 AM EDT (UTC-4)
+    const releaseDate = new Date("2026-10-30T04:00:00Z");
     const now = new Date();
 
     // ── Nav pill elements (present on every page) ─────────
