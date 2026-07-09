@@ -3003,24 +3003,31 @@ body.has-floating-player {
     animation: scaleUp 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
     transition: opacity 0.15s ease-in-out;
 }
-
 .photo-lightbox-close {
     position: absolute;
     top: 1.5rem;
     right: 1.5rem;
-    background: none;
-    border: none;
-    color: var(--text-muted);
-    font-size: 2.5rem;
+    background: rgba(19, 18, 23, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    color: #ffffff;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
     cursor: pointer;
-    line-height: 1;
     z-index: 2100;
-    transition: color 0.2s ease, transform 0.2s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
 }
 
 .photo-lightbox-close:hover {
-    color: var(--text);
-    transform: scale(1.1);
+    background: rgba(19, 18, 23, 0.9);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: scale(1.08);
 }
 
 /* Lightbox navigation buttons */
@@ -3028,28 +3035,30 @@ body.has-floating-player {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(19, 18, 23, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
-    color: var(--text-muted);
-    font-size: 3rem;
-    width: 60px;
-    height: 60px;
+    color: #ffffff;
+    font-size: 3.5rem;
+    width: 64px;
+    height: 64px;
     border-radius: 50%;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 2100;
-    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
     user-select: none;
 }
 
 .photo-lightbox-nav:hover {
-    background: rgba(255, 255, 255, 0.15);
-    color: var(--text);
-    border-color: rgba(255, 255, 255, 0.3);
-    transform: translateY(-50%) scale(1.05);
+    background: rgba(19, 18, 23, 0.95);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-50%) scale(1.08);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
 }
 
 .photo-lightbox-nav.prev {
