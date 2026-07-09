@@ -2960,3 +2960,87 @@ body.has-floating-player {
     }
 }
 
+/* Photo Lightbox Styles */
+.photo-lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(11, 10, 13, 0.9);
+    backdrop-filter: blur(15px);
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    cursor: zoom-out;
+    animation: fadeIn 0.2s ease-out;
+}
+
+.photo-lightbox-overlay[hidden] {
+    display: none !important;
+}
+
+.photo-lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: auto;
+}
+
+.photo-lightbox-img {
+    max-width: 100%;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transform: scale(0.97);
+    animation: scaleUp 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.photo-lightbox-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 2.5rem;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2100;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.photo-lightbox-close:hover {
+    color: var(--text);
+    transform: scale(1.1);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+    to { transform: scale(1); }
+}
+
+body.lightbox-open {
+    overflow: hidden;
+}
+
+.epk-photos-grid img {
+    cursor: pointer;
+    transition: opacity 0.25s ease;
+}
+
+.epk-photos-grid img:hover {
+    opacity: 0.9;
+}
+

@@ -92,6 +92,7 @@ function initPage() {
     if (year) year.textContent = new Date().getFullYear();
 
     initInfoModal();
+    initPhotoLightbox();
     loadMusicLibrary();
     initCountdown();
 
@@ -309,6 +310,53 @@ function initInfoModal() {
         if (event.target === overlay) {
             overlay.hidden = true;
         }
+    });
+}
+
+function initPhotoLightbox() {
+    let overlay = document.querySelector("#photo-lightbox-overlay");
+    if (!overlay) {
+        const lightboxHtml = `
+            <div id="photo-lightbox-overlay" class="photo-lightbox-overlay" hidden aria-modal="true" role="dialog" aria-label="Photo view">
+                <button id="photo-lightbox-close" class="photo-lightbox-close" type="button" aria-label="Close image view">&times;</button>
+                <div class="photo-lightbox-content">
+                    <img id="photo-lightbox-img" class="photo-lightbox-img" src="" alt="">
+                </div>
+            </div>
+        `;
+        document.body.insertAdjacentHTML("beforeend", lightboxHtml);
+        overlay = document.querySelector("#photo-lightbox-overlay");
+    }
+
+    const lightboxImg = document.querySelector("#photo-lightbox-img");
+
+    const closeLightbox = () => {
+        overlay.hidden = true;
+        document.body.classList.remove("lightbox-open");
+    };
+
+    overlay.addEventListener("click", (e) => {
+        if (e.target === overlay || e.target.closest("#photo-lightbox-close") || e.target.classList.contains("photo-lightbox-content")) {
+            closeLightbox();
+        }
+    });
+
+    const handleKeyDown = (e) => {
+        if (e.key === "Escape" && !overlay.hidden) {
+            closeLightbox();
+        }
+    };
+    document.removeEventListener("keydown", handleKeyDown);
+    document.addEventListener("keydown", handleKeyDown);
+
+    const photoImages = document.querySelectorAll(".epk-photos-grid img");
+    photoImages.forEach(img => {
+        img.addEventListener("click", () => {
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            overlay.hidden = false;
+            document.body.classList.add("lightbox-open");
+        });
     });
 }
 
