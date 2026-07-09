@@ -319,9 +319,11 @@ function initPhotoLightbox() {
         const lightboxHtml = `
             <div id="photo-lightbox-overlay" class="photo-lightbox-overlay" hidden aria-modal="true" role="dialog" aria-label="Photo view">
                 <button id="photo-lightbox-close" class="photo-lightbox-close" type="button" aria-label="Close image view">&times;</button>
+                <button id="photo-lightbox-prev" class="photo-lightbox-nav prev" type="button" aria-label="Previous image">&lsaquo;</button>
                 <div class="photo-lightbox-content">
                     <img id="photo-lightbox-img" class="photo-lightbox-img" src="" alt="">
                 </div>
+                <button id="photo-lightbox-next" class="photo-lightbox-nav next" type="button" aria-label="Next image">&rsaquo;</button>
             </div>
         `;
         document.body.insertAdjacentHTML("beforeend", lightboxHtml);
@@ -329,10 +331,40 @@ function initPhotoLightbox() {
     }
 
     const lightboxImg = document.querySelector("#photo-lightbox-img");
+    const prevBtn = document.querySelector("#photo-lightbox-prev");
+    const nextBtn = document.querySelector("#photo-lightbox-next");
+
+    const photoImages = Array.from(document.querySelectorAll(".epk-photos-grid img"));
+    let currentIndex = -1;
+
+    const showImage = (index) => {
+        if (index < 0 || index >= photoImages.length) return;
+        currentIndex = index;
+        const img = photoImages[currentIndex];
+        
+        lightboxImg.style.opacity = "0.3";
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        
+        lightboxImg.onload = () => {
+            lightboxImg.style.opacity = "1";
+        };
+    };
 
     const closeLightbox = () => {
         overlay.hidden = true;
         document.body.classList.remove("lightbox-open");
+    };
+
+    const navigateLightbox = (direction) => {
+        if (photoImages.length === 0) return;
+        let nextIndex = currentIndex + direction;
+        if (nextIndex < 0) {
+            nextIndex = photoImages.length - 1;
+        } else if (nextIndex >= photoImages.length) {
+            nextIndex = 0;
+        }
+        showImage(nextIndex);
     };
 
     overlay.addEventListener("click", (e) => {
@@ -341,19 +373,34 @@ function initPhotoLightbox() {
         }
     });
 
+    prevBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        navigateLightbox(-1);
+    });
+
+    nextBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        navigateLightbox(1);
+    });
+
     const handleKeyDown = (e) => {
-        if (e.key === "Escape" && !overlay.hidden) {
+        if (overlay.hidden) return;
+        if (e.key === "Escape") {
             closeLightbox();
+        } else if (e.key === "ArrowLeft") {
+            navigateLightbox(-1);
+        } else if (e.key === "ArrowRight") {
+            navigateLightbox(1);
         }
     };
     document.removeEventListener("keydown", handleKeyDown);
     document.addEventListener("keydown", handleKeyDown);
 
-    const photoImages = document.querySelectorAll(".epk-photos-grid img");
-    photoImages.forEach(img => {
+    photoImages.forEach((img, index) => {
+        // Change cursor to indicate clickability
+        img.style.cursor = "pointer";
         img.addEventListener("click", () => {
-            lightboxImg.src = img.src;
-            lightboxImg.alt = img.alt;
+            showImage(index);
             overlay.hidden = false;
             document.body.classList.add("lightbox-open");
         });

@@ -3001,6 +3001,7 @@ body.has-floating-player {
     border: 1px solid rgba(255, 255, 255, 0.1);
     transform: scale(0.97);
     animation: scaleUp 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    transition: opacity 0.15s ease-in-out;
 }
 
 .photo-lightbox-close {
@@ -3020,6 +3021,63 @@ body.has-floating-player {
 .photo-lightbox-close:hover {
     color: var(--text);
     transform: scale(1.1);
+}
+
+/* Lightbox navigation buttons */
+.photo-lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    color: var(--text-muted);
+    font-size: 3rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2100;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+    user-select: none;
+}
+
+.photo-lightbox-nav:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--text);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-50%) scale(1.05);
+}
+
+.photo-lightbox-nav.prev {
+    left: 2rem;
+}
+
+.photo-lightbox-nav.next {
+    right: 2rem;
+}
+
+
+/* Make sure navigation buttons are fully responsive */
+@media (max-width: 768px) {
+    .photo-lightbox-nav {
+        width: 44px;
+        height: 44px;
+        font-size: 2rem;
+    }
+    .photo-lightbox-nav.prev {
+        left: 0.75rem;
+    }
+    .photo-lightbox-nav.next {
+        right: 0.75rem;
+    }
+    .photo-lightbox-img {
+        max-width: 95%;
+        max-height: 75vh;
+    }
 }
 
 @keyframes fadeIn {
